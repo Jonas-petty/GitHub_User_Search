@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
+import searchIcon from "./assets/search-icon.svg"
+import sunIcon from "./assets/sun-icon.svg"
+import moonIcon from "./assets/moon-icon.svg"
 import Data from "./components/Data";
 import "./style.css"
 
 export default function App() {
+    const [darkMode, setDarkMode] = useState(false)
     const [userName, setUserName] = useState("")
     const [search, setSearch] = useState(false)
     const [userData, setUserData] = useState(
@@ -11,7 +15,14 @@ export default function App() {
             name: "",
             login: "",
             joined: "",
-            bio: ""
+            bio: "",
+            location: "",
+            twitterUsername: "",
+            company: "",
+            blog: "",
+            followers: 0,
+            following: 0,
+            repos: 0
         }
     )
 
@@ -23,7 +34,14 @@ export default function App() {
             name: data.name,
             login: data.login,
             joined: data.created_at,
-            bio: data.bio
+            bio: data.bio,
+            location: data.location,
+            twitterUsername: data.twitter_username,
+            company: data.company,
+            blog: data.blog,
+            followers: data.followers,
+            following: data.following,
+            repos: data.public_repos
         }))
     }, [search])
 
@@ -36,29 +54,47 @@ export default function App() {
         setSearch(prevSearch => !prevSearch)
     }
 
+    function toggleMode() {
+        setDarkMode(prevDarkMode => !prevDarkMode)
+        console.log(darkMode)
+    }
+
     return (
-        <>
-            <div className="header">
+        <div className={`container ${darkMode ? "dark" : ""}`}>
+            <div className={`header`}>
                 <nav className="navbar">
                     <h1 className="navbar-title">Devfinder</h1>
-                    <button className="toggle-mode">mode</button>
+                    <button 
+                    className="toggle-mode"
+                    onClick={toggleMode}>
+                        LIGHT
+                        <img src={sunIcon} alt="" />
+                    </button>
                 </nav>
                 <form className="search-form" onSubmit={handleSubmit}>
-                    <img src="#" alt="search icon" />
+                    <img src={searchIcon} alt="search icon" />
                     <input type="text" 
-                    placeholder="Search GitHub username_"
+                    placeholder="Pesquisar nome de usuário..."
                     className="search-input"
                     onChange={handleChange}/>
-                    <button className="search-button">Search</button>
+                    <button className="search-button">Pesquisar</button>
                 </form>
             </div>
             <Data 
-                avatarUrl={userData.avatarUrl}
                 name={userData.name}
                 login={userData.login}
                 joined={userData.joined}
                 bio={userData.bio}
+                avatarUrl={userData.avatarUrl}
+                followers={userData.followers}
+                following={userData.following}
+                repos={userData.repos}
+                location={userData.location}
+                twitterUsername={userData.twitterUsername}
+                company={userData.company}
+                blog={userData.blog}
+                isDark={darkMode}
             />
-        </>
+        </div>
     )
 }

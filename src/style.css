@@ -1,8 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 :root {
     --color1: #141c2f;
     --color2: #1f2a48;
-    --color4: #165da7;
     --color3: #0079fe;
+
+    --color4: #4e6999;
+    --color5: #f4f7fe;
+    --color6: #fefefe;
+    --color7: #383b40;
+
+    --font1: 'Space Mono', monospace;
 }
 
 * {
@@ -11,20 +19,22 @@
     padding: 0;
 }
 
-body {
+.container {
     background-color: var(--color1);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: var(--font1), sans-serif;
     color: #FFFFFF;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px
+    padding: 20px;
+    transition: 0.2s;
 }
 
 .header, .user-profile {
     width: 600px;
+    transition: 0.2s;
 }
 
 .navbar {
@@ -37,6 +47,21 @@ body {
     margin-right: auto;
 }
 
+.toggle-mode {
+    cursor: pointer;
+    background-color: transparent;
+    font-family: var(--font1);
+    color: #FFFFFF;
+    border: none;
+    display: flex;
+    align-items: center;
+}
+
+.toggle-mode > img {
+    width: 20px;
+    margin-left: 20px;
+}
+
 .search-form {
     background-color: var(--color2);
     display: flex;
@@ -45,8 +70,15 @@ body {
     border-radius: 10px;
 }
 
+.search-form > img {
+    height: 30px;
+    width: 30px;
+    margin: 0 25px;
+}
+
 .search-input {
     background-color: transparent;
+    font-family: var(--font1);
     color: #FFF;
     height: 50px;
     width: 400px;
@@ -64,6 +96,7 @@ body {
 .search-button {
     cursor: pointer;
     background-color: var(--color3);
+    font-family: var(--font1);
     color: #FFF;
     height: 50px;
     width: 90px;
@@ -97,7 +130,7 @@ body {
 }
 
 .user-link {
-    color: var(--color4);
+    color: var(--color3);
 }
 
 .user-desc {
@@ -107,9 +140,13 @@ body {
 .user-stats {
     background-color: var(--color1);
     display: flex;
-    justify-content: space-between;
-    padding: 20px;
+    justify-content: left;
+    padding: 10px 30px;
     border-radius: 10px;
+}
+
+.user-stats > div {
+    margin-right: auto;
 }
 
 .user-stats > div > h2 {
@@ -119,5 +156,43 @@ body {
 
 .user-stats > div > h3 {
     font-size: 1.5em;
+}
+
+.contacts {
+    width: 100%;
+    display: grid;
+    grid-template: 1fr 1fr /1fr 1fr;
+    margin-top: 30px;
+}
+
+.contacts > a {
+    text-decoration: none;
+    color: #FFFFFF;
+    
+}
+
+.no_contact, .contacts > .no_contact {
+    color: #646f83;
+}
+
+.contacts > a > img {
+    width: 20px;
+    margin-right: 20px;
+}
+
+/*darkMode*/
+
+.container.dark {
+    background-color: var(--color5);
+    color: var(--color7);
+}
+
+.user-profile.dark  {
+    background-color: var(--color6);
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.144);
+}
+
+.user-profile.dark .user-stats {
+    background-color: var(--color5);
 }
 
