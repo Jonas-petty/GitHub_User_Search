@@ -51,10 +51,12 @@
     cursor: pointer;
     background-color: transparent;
     font-family: var(--font1);
+    font-weight: 600;
     color: #FFFFFF;
     border: none;
     display: flex;
     align-items: center;
+    letter-spacing: 0.15em;
 }
 
 .toggle-mode > img {
@@ -187,12 +189,42 @@
     color: var(--color7);
 }
 
+.container.dark .toggle-mode {
+    color: var(--color4);
+}
+
+.container.dark .search-form {
+    background-color: var(--color6);
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.144);
+    color: var(--color4);
+}
+
+.container.dark .search-input {
+    color: var(--color4);
+}
+
+.container.dark .search-input::placeholder {
+    color: var(--color4)
+}
+
 .user-profile.dark  {
     background-color: var(--color6);
-    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.144);
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.144);
 }
 
 .user-profile.dark .user-stats {
     background-color: var(--color5);
+    color: var(--color4);
 }
 
+.user-profile.dark .contacts > a {
+    color: var(--color4);
+}
+
+.user-profile.dark .join-date {
+    color: var(--color4);
+}
+
+.user-profile.dark .user-desc {
+    color: var(--color4);
+}

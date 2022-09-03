@@ -1,8 +1,12 @@
 import React, { forwardRef } from "react";
 import mapIcon from "../assets/map-icon.svg"
+import darkMapIcon from "../assets/dark-map-icon.svg"
 import linkIcon from "../assets/link-icon.svg"
+import darkLinkIcon from "../assets/dark-link-icon.svg"
 import companyIcon from "../assets/company-icon.svg"
+import darkCompanyIcon from "../assets/dark-company-icon.svg"
 import twitterIcon from "../assets/twitter-icon.svg"
+import darkTwitterIcon from "../assets/dark-twitter-icon.svg"
 import userIcon from "../assets/user-icon.svg"
 
 export default function Data(props) {
@@ -46,22 +50,22 @@ export default function Data(props) {
                     <div className="contacts">
                         
                         <a href="#" className={props.location ? "" : "no_contact"}>
-                            <img src={mapIcon} alt="map icon" />
+                            <img src={props.isDark ? darkMapIcon : mapIcon} alt="map icon" />
                             {props.location ? props.location : "Indisponível"}
                         </a>
 
                         <a href="#" className={props.twitterUsername ? "" : "no_contact"}>
-                            <img src={twitterIcon} alt="twitter icon" />
+                            <img src={props.isDark ? darkTwitterIcon : twitterIcon} alt="twitter icon" />
                             {props.twitterUsername ? props.twitterUsername : "Indisponível"}
                         </a>
 
                         <a href="#" className={props.blog ? "" : "no_contact"}>
-                            <img src={linkIcon} alt="lik icon" />
+                            <img src={props.isDark ? darkLinkIcon : linkIcon} alt="lik icon" />
                             {props.blog ? props.blog : "Indisponível"}
                         </a>
 
                         <a href="#" className={props.company ? "" : "no_contact"}>
-                            <img src={companyIcon} alt="company icon" />
+                            <img src={props.isDark ? darkCompanyIcon : companyIcon} alt="company icon" />
                             {props.company ? props.company : "Indisponível"}
                         </a>
                     </div>

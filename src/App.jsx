@@ -67,8 +67,8 @@ export default function App() {
                     <button 
                     className="toggle-mode"
                     onClick={toggleMode}>
-                        LIGHT
-                        <img src={sunIcon} alt="" />
+                        {darkMode ? "DARK" : "LIGHT"}
+                        <img src={darkMode ? moonIcon : sunIcon} alt="" />
                     </button>
                 </nav>
                 <form className="search-form" onSubmit={handleSubmit}>
