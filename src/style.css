@@ -228,3 +228,34 @@
 .user-profile.dark .user-desc {
     color: var(--color4);
 }
+
+/* Mobile version */
+
+@media only screen and (max-width: 625px) {
+    .header, .user-profile {
+        max-width: 400px;
+        transition: 0.2s;
+    }
+
+    .user-name {
+        font-size: 1.2em;
+    }
+
+    .search-button {
+        padding: 5px;
+    }
+
+    .join-date {
+        font-size: 0.8em;
+    }
+
+    .user-stats {
+        text-align: center;
+        font-size: 0.8em;
+    }
+
+    .contacts {
+        display: flex;
+        flex-direction: column;
+    }
+}

@@ -74,7 +74,7 @@ export default function App() {
                 <form className="search-form" onSubmit={handleSubmit}>
                     <img src={searchIcon} alt="search icon" />
                     <input type="text" 
-                    placeholder="Pesquisar nome de usuário..."
+                    placeholder="Pesquisar usuário..."
                     className="search-input"
                     onChange={handleChange}/>
                     <button className="search-button">Pesquisar</button>
